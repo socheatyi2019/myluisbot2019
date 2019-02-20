@@ -81,3 +81,21 @@ bot.dialog('CancelDialog',
     matches: 'Cancel'
 })
 
+bot.dialog('StatesDialog',
+    (session) => {
+        session.send('You reached the State intent. You said \'%s\'.', session.message.text);
+        session.endDialog();
+    }
+).triggerAction({
+    matches: 'States'
+})
+
+bot.dialog('NoneDialog',
+    (session) => {
+        session.send('Sorry I don\'t understand your query, I need to learn more. You said \'%s\'.', session.message.text);
+        session.endDialog();
+    }
+).triggerAction({
+    matches: 'None'
+})
+
